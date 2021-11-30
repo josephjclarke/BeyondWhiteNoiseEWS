@@ -181,8 +181,8 @@ wl = 12*30
 X = [i%12 for i in range(0, wl)]
    
 ################## Specify path to processed data directory #####################
-path = '../CMIP6_data/'+var1+'/'+experiment+'/Processed_data/'+region+'/'
-path2 = '../CMIP6_data/'+var3+'/'+experiment+'/Processed_data/'+region+'/'
+path = './' #'../CMIP6_data/'+var1+'/'+experiment+'/Processed_data/'+region+'/'
+path2 = './' #'../CMIP6_data/'+var3+'/'+experiment+'/Processed_data/'+region+'/'
 
 ##################### Initialise plotting ################################
 plt.rcParams["font.family"] = "serif"
