@@ -46,28 +46,3 @@ vax.spines["right"].set_visible(False)
 plt.tight_layout()
 plt.savefig("figure3.eps")
 plt.close()
-
-
-#print("Calculating Linear")
-#forcing,response,noise = integrator.integrate_linear(times, 0.0)
-#print("Calculating Lambda")
-#fs = np.abs(1/np.diff(times)[0])
-#lambdas = ews.lambda_from_spectrum(forcing, response,2500,fs)**.5
-#
-#fig, ax = plt.subplots(1,2)
-#
-#ax[0].plot(times,response,color=pcolors[0])
-#ax[1].plot(times,lambdas,color=pcolors[0])
-#ax[0].set_xlabel("Time")
-#ax[1].set_xlabel("End of Window")
-#ax[0].set_ylabel(r"$x$")
-#ax[1].set_ylabel(r"$|\lambda|$")
-#
-#for n,a in enumerate(ax.flatten()):
-#    a.spines["top"].set_visible(False)
-#    a.spines["right"].set_visible(False)
-#    a.text(-0.1, 1.1, string.ascii_uppercase[n], transform=a.transAxes,size=12, weight='bold')
-#    
-#plt.tight_layout()
-#plt.savefig("figure3.eps")
-#plt.close()
