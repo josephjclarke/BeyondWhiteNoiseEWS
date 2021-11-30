@@ -22,16 +22,6 @@ def traditional_ews(sig,win):
     a = s.rolling(win).apply(lambda x: pd.Series(scipy.signal.detrend(x)).autocorr())
     return v,a
 
-def traditional_ews_perfect(sig,win,epsilon):
-    times = np.linspace(0.0, 1.0, sig.size) / epsilon
-    eq = equilibrium(times,epsilon)
-    s = pd.Series(sig-eq)
-    v = s.rolling(win).var()
-    a = s.rolling(win).apply(lambda x:x.autocorr())
-    return v,a
-
-
-
 def fitfunction(frequencies, ls):
     return 1 / (frequencies**2 + ls**2)
 
