@@ -44,22 +44,3 @@ def lambda_from_spectrum(forcing, response, window, fs):
         lambdas[i + window] = popt[0]
 
     return lambdas
-
-def lambda_from_spectrum_welch(forcing, response, window, fs):
-    lambdas = np.full_like(forcing, np.nan)
-
-    for i in range(lambdas.size - window):
-        dr = response[i:i + window]
-        df = forcing[i:i + window]
-
-        f, Pxx_f = scipy.signal.periodogram(df, fs=fs, detrend="linear")
-        f, Pxx_r = scipy.signal.periodogram(dr, fs=fs, detrend="linear")
-        popt, pcov = scipy.optimize.curve_fit(fitfunction,
-                                              f[1:],
-                                              Pxx_r[1:] / Pxx_f[1:],
-                                              p0=[1.0],
-                                              bounds=(0.0, np.inf))
-
-        lambdas[i + window] = popt[0]
-
-    return lambdas
